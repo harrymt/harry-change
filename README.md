@@ -11,3 +11,10 @@ $ npm install
 $ npm run dev
 ```
 
+### Tests
+
+Jest watches and recompiles typescript files when they are changed.
+
+```
+$ npm test
+```
