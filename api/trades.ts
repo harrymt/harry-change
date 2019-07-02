@@ -1,6 +1,6 @@
 export enum BuyOrSell {
-    Buy,
-    Sell
+    Buy = "BUY",
+    Sell = "SELL"
 }
 
 export class Trade {
@@ -27,11 +27,15 @@ class TradesApi {
 
     buy(trade: Trade) {
         this.orders.push(trade);
+        console.log(`Successfully added order ${trade.id}.`)
+        console.log(this.orders);
     }
 
-    sell(order) {
+    sell(trade: Trade) {
         // TODO apply selling logic
-        this.orders.pop();
+        const last = this.orders.pop();
+        console.log(`Successfully removed (last) order ${last.id}.`)
+        console.log(this.orders);
     }
 };
 
