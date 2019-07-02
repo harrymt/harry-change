@@ -15,4 +15,11 @@ describe('GET /trades', function() {
             .set('Accept', 'application/json')
             .expect(200, done);
     });
+
+    it('responds with an orders object with an empty json array', function(done) {
+        request(app)
+            .get('/trades')
+            .set('Accept', 'application/json')
+            .expect([], done)
+    })
 });

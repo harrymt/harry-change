@@ -1,27 +1,38 @@
-let Trades = {
-    orders: [
-        {
-            type: "BUY",
-            amount: 20,
-            price: 1.50,
-            id: 1
-        },
-        {
-            type: "BUY",
-            amount: 20,
-            price: 1.50,
-            id: 2
-        }
-    ],
+export enum BuyOrSell {
+    Buy,
+    Sell
+}
 
-    buy: function(order) {
-        this.orders.push(order);
-    },
+export class Trade {
+    constructor(type: BuyOrSell, amount: Number, price: Number, id: Number) {
+        this.type = type;
+        this.amount = amount;
+        this.price = price;
+        this.id = id;
+    }
 
-    sell: function(order) {
+    type: BuyOrSell;
+    amount: Number;
+    price: Number;
+    id: Number;
+}
+
+class TradesApi {
+
+    constructor(orders: Trade[]) {
+        this.orders = orders;
+    }
+
+    orders: Trade[];
+
+    buy(trade: Trade) {
+        this.orders.push(trade);
+    }
+
+    sell(order) {
         // TODO apply selling logic
         this.orders.pop();
     }
 };
 
-module.exports = Trades;
+export let Trades = new TradesApi([]);
