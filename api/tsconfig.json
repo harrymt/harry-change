@@ -3,11 +3,12 @@
         "esModuleInterop": true,
         "outDir": "dist",
         "allowJs": true,
-        "target": "es6",
-        "sourceMap": true
+        "target": "es5",
+        "sourceMap": true,
+        "downlevelIteration": true
     },
     "include": [
-        "**/*.ts"
+        "./**/*.ts"
     ],
     "exclude": [
         "node_modules",
