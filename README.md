@@ -31,8 +31,6 @@ POST /order
 }
 ```
 
-> Receive:
-
 ```
 {
   "response": "OK"
