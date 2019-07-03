@@ -2,7 +2,7 @@
   "name": "api",
   "version": "0.0.1",
   "private": true,
-  "main": "api/bin/www",
+  "main": "api/dist/bin/www",
   "scripts": {
     "start": "node api/dist/bin/www | bunyan -o short --color",
     "postinstall": "tsc -p ./api",
