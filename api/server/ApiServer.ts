@@ -1,5 +1,5 @@
 import app from '../app';
-import http, { Server } from 'http';
+import { createServer, Server } from 'http';
 import logger from '../logger';
 
 export class ApiServer {
@@ -18,7 +18,7 @@ export class ApiServer {
     /**
      * Create HTTP server.
      */
-    this.server = http.createServer(app);
+    this.server = createServer(app);
   }
 
   start() {
