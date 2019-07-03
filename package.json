@@ -2,9 +2,9 @@
   "name": "api",
   "version": "0.0.1",
   "private": true,
-  "main": "./dist/bin/www",
+  "main": "api/bin/www",
   "scripts": {
-    "start": "ts-node ./bin/www",
+    "start": "ts-node api/bin/www",
     "dev": "nodemon | bunyan",
     "test": "jest --watch --coverage --runInBand"
   },
