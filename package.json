@@ -5,8 +5,8 @@
   "main": "api/bin/www",
   "scripts": {
     "start": "ts-node api/bin/www",
-    "dev": "nodemon | bunyan",
-    "test": "jest --watch --coverage --runInBand"
+    "dev": "nodemon | bunyan -o short --color",
+    "test": "cross-env IS_TEST=Y jest --colors --watch --runInBand | bunyan -l warn"
   },
   "nodemonConfig": {
     "ignore": [
@@ -30,6 +30,7 @@
     "@types/node": "^12.0.10",
     "@types/supertest": "^2.0.7",
     "bunyan": "^1.8.12",
+    "cross-env": "^5.2.0",
     "express": "~4.16.1"
   },
   "devDependencies": {
