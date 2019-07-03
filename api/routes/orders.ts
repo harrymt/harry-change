@@ -1,10 +1,12 @@
 import { Api } from '../trades/store';
-var express = require('express');
-var router = express.Router();
+import { Request, Response, Router, NextFunction } from 'express';
 
-router.get('/', function(req, res, next) {
+const router: Router = Router();
+
+router.get('/', function(req: Request, res: Response, next: NextFunction) {
   res.setHeader('Content-Type', 'application/json');
   res.json(Api.orders);
 });
 
-module.exports = router;
+export default router;
+

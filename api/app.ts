@@ -1,8 +1,8 @@
-var express = require('express');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var openOrdersRouter = require('./routes/orders');
-var orderRouter = require('./routes/order');
+import express from 'express';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
+import openOrdersRouter from './routes/orders';
+import orderRouter from './routes/order';
 
 const app = express();
 

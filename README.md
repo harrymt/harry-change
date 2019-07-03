@@ -1,6 +1,50 @@
 # node-api
 
-Example Node.js backend API
+Example Node.js backend API for an exchange.
+
+
+```
+POST /order
+{
+	"type": "BUY",
+	"amount": 10,
+	"price": 12.50
+}
+
+> Receive:
+
+{
+  "response": "OK"
+}
+
+
+POST /order
+{
+	"type": "SELL",
+	"amount": 5,
+	"price": 12.50
+}
+
+> Receive:
+
+{
+  "response": "OK"
+}
+
+GET /orders
+
+> Receive:
+
+[
+  {
+    "type": "BUY",
+    "amount": 5,
+    "price": 12.5
+  }
+]
+```
+
+
 
 ### Setup
 

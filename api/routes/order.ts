@@ -1,10 +1,9 @@
 import { Api } from '../trades/store';
 import { BuyOrSell } from "../trades/BuyOrSell";
 import { Trade } from "../trades/Trade";
-
 import { Request, Response, Router, NextFunction } from 'express';
-var express = require('express');
-var router: Router = express.Router();
+
+const router: Router = Router();
 
 router.post('/', function(req: Request, res: Response, next: NextFunction) {
 
@@ -22,4 +21,4 @@ router.post('/', function(req: Request, res: Response, next: NextFunction) {
   });
 });
 
-module.exports = router;
+export default router;
