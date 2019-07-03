@@ -1,4 +1,4 @@
-# node-api
+# Harry's Exchange
 
 Example Node.js backend API for an exchange.
 
@@ -10,31 +10,40 @@ POST /order
 	"amount": 10,
 	"price": 12.50
 }
+```
 
 > Receive:
 
+```
 {
   "response": "OK"
 }
+```
 
-
+```
 POST /order
 {
 	"type": "SELL",
 	"amount": 5,
 	"price": 12.50
 }
+```
 
 > Receive:
 
+```
 {
   "response": "OK"
 }
+```
 
+```
 GET /orders
+```
 
 > Receive:
 
+```
 [
   {
     "type": "BUY",
@@ -43,7 +52,6 @@ GET /orders
   }
 ]
 ```
-
 
 
 ### Setup

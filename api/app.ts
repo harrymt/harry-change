@@ -6,7 +6,10 @@ import orderRouter from './routes/order';
 
 const app = express();
 
-app.use(logger('dev'));
+app.use(logger('dev', {
+    skip: () => process.env.IS_TEST === "Y"
+}))
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
