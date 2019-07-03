@@ -1,5 +1,6 @@
 import { Record } from "./Record";
 import { Trade } from "./Trade";
+import logger from '../logger';
 
 export class TradesApi {
 
@@ -16,7 +17,7 @@ export class TradesApi {
         this.orders.push(trade);
         this.history.push(new Record(trade));
 
-        console.log(`Successfully added order ${trade} ${trade.toString()}.`);
+        logger.info(`Successfully added order ${trade} ${trade.toString()}.`);
     }
 
     sell(trade: Trade) {
@@ -24,7 +25,7 @@ export class TradesApi {
         let amountRemoved = this.removeOrders(toRemove, this.orders);
         this.history.push(new Record(trade));
 
-        console.log(`Successfully sold ${amountRemoved} orders, '${[...toRemove.entries()].map(e => e.join(': index -> ')).join(', ')}'.`);
+        logger.info(`Successfully sold ${amountRemoved} orders, '${[...toRemove.entries()].map(e => e.join(': index -> ')).join(', ')}'.`);
     }
 
     private removeOrders(toRemove: Map<number, number>, orders: Trade[]) : number {

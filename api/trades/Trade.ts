@@ -1,4 +1,5 @@
 import { BuyOrSell } from "./BuyOrSell";
+
 export class Trade {
     constructor(type: BuyOrSell, amount: number, price: number) {
         this.type = type;
