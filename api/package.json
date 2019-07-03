@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node ./bin/www",
     "dev": "nodemon",
-    "test": "jest --watch --coverage"
+    "test": "jest --watch --coverage --runInBand"
   },
   "nodemonConfig": {
     "ignore": [

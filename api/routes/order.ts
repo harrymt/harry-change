@@ -1,4 +1,6 @@
-import { Trades, Trade, BuyOrSell } from '../trades';
+import { Api } from '../trades/store';
+import { BuyOrSell } from "../trades/BuyOrSell";
+import { Trade } from "../trades/Trade";
 
 import { Request, Response, Router, NextFunction } from 'express';
 var express = require('express');
@@ -6,20 +8,17 @@ var router: Router = express.Router();
 
 router.post('/', function(req: Request, res: Response, next: NextFunction) {
 
-  console.log(req.body);
-  const order = req.body as Trade;
-  console.log(order);
+  const order = Trade.fromRequest(req.body);
 
   if (order.type == BuyOrSell.Buy) {
-    Trades.buy(order);
+    Api.buy(order);
   } else if (order.type == BuyOrSell.Sell) {
-    Trades.sell(order);
+    Api.sell(order);
   }
 
   res.setHeader('Content-Type', 'application/json');
   res.status(200).json({
-    response: 'OK',
-    body: order
+    response: 'OK'
   });
 });
 
