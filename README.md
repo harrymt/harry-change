@@ -3,6 +3,7 @@
 Example Node.js backend API for an exchange.
 
 
+#### Order
 ```
 POST /order
 {
@@ -12,13 +13,14 @@ POST /order
 }
 ```
 
-> Receive:
-
 ```
 {
   "response": "OK"
 }
 ```
+
+
+#### Sell
 
 ```
 POST /order
@@ -37,11 +39,11 @@ POST /order
 }
 ```
 
+#### List open orders
+
 ```
 GET /orders
 ```
-
-> Receive:
 
 ```
 [
@@ -59,7 +61,7 @@ GET /orders
 ```
 $ npm install
 
-# Use nodemon to compile ts files on save
+# Uses nodemon to compile typescript files on save
 $ npm run dev
 ```
 
@@ -70,3 +72,7 @@ Jest watches and recompiles typescript files when they are changed.
 ```
 $ npm test
 ```
+
+### Deployment
+
+After a PR merges into master, [Heroku](https://dashboard.heroku.com/apps/harry-change) triggers a [new build](https://harry-change.herokuapp.com).
