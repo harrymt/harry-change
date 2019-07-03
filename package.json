@@ -4,7 +4,8 @@
   "private": true,
   "main": "api/bin/www",
   "scripts": {
-    "start": "ts-node api/bin/www",
+    "start": "node api/dist/bin/www | bunyan -o short --color",
+    "postinstall": "tsc -p ./api",
     "dev": "nodemon | bunyan -o short --color",
     "test": "cross-env IS_TEST=Y jest --colors --watch --runInBand | bunyan -l warn"
   },
