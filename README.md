@@ -56,19 +56,30 @@ GET /orders
 
 ### Setup
 
-```
-$ npm install
+```bash
+# Create the image
+$ docker-compose build
 
-# Uses nodemon to compile typescript files on save
-$ npm run dev
+# Sets up Elastic Search in docker
+$ docker-compose up
 ```
 
 ### Tests
 
 Jest watches and recompiles typescript files when they are changed.
 
-```
+```bash
 $ npm test
+```
+
+### Development Endpoints
+
+```bash
+# Elastic Search
+http://localhost:9300
+
+# API
+http://localhost:3000
 ```
 
 ### Deployment
