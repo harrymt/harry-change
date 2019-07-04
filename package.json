@@ -19,7 +19,7 @@
     "watch": [
       "./"
     ],
-    "exec": "npm start",
+    "exec": "npm run postinstall && npm start",
     "ext": "ts"
   },
   "dependencies": {
