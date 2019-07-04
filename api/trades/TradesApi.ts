@@ -1,5 +1,7 @@
 import { Record } from "./Record";
 import { Trade } from "./Trade";
+import datastore from './../data/repository';
+
 import logger from '../logger';
 
 export class TradesApi {
@@ -12,6 +14,7 @@ export class TradesApi {
     }
 
     buy(trade: Trade) {
+        // datastore.set(trade); // TODO enable this
         this.buyorders.push(trade);
         this.history.push(new Record(trade));
 
@@ -20,6 +23,7 @@ export class TradesApi {
 
     sell(trade: Trade) {
         let toRemove: Map<number, number> = this.findOrdersToRemove(trade.amount, this.buyorders);
+        //datastore.remove(toRemove); // TODO change what we pass into this method, and what we get back from findOrdersToRemove, so they are Trade objects
         let amountRemoved = this.removeOrders(toRemove, this.buyorders);
         this.history.push(new Record(trade));
 
