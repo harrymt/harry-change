@@ -3,26 +3,24 @@ import { Trade } from "./Trade";
 import logger from '../logger';
 
 export class TradesApi {
-
-    internalId: number;
-    orders: Trade[];
+    buyorders: Trade[];
     history: Record[];
 
     constructor(orders: Trade[]) {
-        this.orders = orders;
+        this.buyorders = orders;
         this.history = [];
     }
 
     buy(trade: Trade) {
-        this.orders.push(trade);
+        this.buyorders.push(trade);
         this.history.push(new Record(trade));
 
         logger.info(`Successfully added order ${trade} ${trade.toString()}.`);
     }
 
     sell(trade: Trade) {
-        let toRemove: Map<number, number> = this.findOrdersToRemove(trade.amount, this.orders);
-        let amountRemoved = this.removeOrders(toRemove, this.orders);
+        let toRemove: Map<number, number> = this.findOrdersToRemove(trade.amount, this.buyorders);
+        let amountRemoved = this.removeOrders(toRemove, this.buyorders);
         this.history.push(new Record(trade));
 
         logger.info(`Successfully sold ${amountRemoved} orders, '${[...toRemove.entries()].map(e => e.join(': index -> ')).join(', ')}'.`);
@@ -31,7 +29,7 @@ export class TradesApi {
     private removeOrders(toRemove: Map<number, number>, orders: Trade[]) : number {
         const before = orders.length;
 
-        this.orders = orders.filter((_, i, theOrders) => {
+        this.buyorders = orders.filter((_, i, theOrders) => {
             if (toRemove.has(i)) {
                 let amount = toRemove.get(i);
 
@@ -44,7 +42,7 @@ export class TradesApi {
             }
         });
 
-        const after = this.orders.length;
+        const after = this.buyorders.length;
         return before - after;
     }
 
@@ -52,7 +50,7 @@ export class TradesApi {
     {
         let remainder = amount;
         let toRemove: Map<number, number> = new Map();
-        
+
         for (let t = 0; t < orders.length; t++) {
 
             // If there is still some remainder, keep going.

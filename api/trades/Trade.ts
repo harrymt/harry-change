@@ -1,10 +1,13 @@
 import { BuyOrSell } from "./BuyOrSell";
 
+let nextId = 0;
+
 export class Trade {
     constructor(type: BuyOrSell, amount: number, price: number) {
         this.type = type;
         this.amount = amount;
         this.price = price;
+        this.id = nextId++;
     }
     static fromRequest(body: any) {
         const t = body as Trade;
