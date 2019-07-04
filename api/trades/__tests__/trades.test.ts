@@ -11,7 +11,7 @@ describe('trades selling logic', () => {
         Api.buy(tbuy);
         Api.sell(tsell);
 
-        expect(Api.orders).toStrictEqual([]);
+        expect(Api.buyorders).toStrictEqual([]);
     });
 
     it('buy multiple then sell multiple should remove all from queue', () => {
@@ -21,7 +21,7 @@ describe('trades selling logic', () => {
         Api.sell(tsell);
         Api.sell(tsell);
 
-        expect(Api.orders).toStrictEqual([]);
+        expect(Api.buyorders).toStrictEqual([]);
     });
 
     it('buy multiple then sell single for total amount should remove all from queue', () => {
@@ -30,7 +30,7 @@ describe('trades selling logic', () => {
 
         Api.sell(tsell2);
 
-        expect(Api.orders).toStrictEqual([]);
+        expect(Api.buyorders).toStrictEqual([]);
     });
 
     const tbuyhalf = new Trade(BuyOrSell.Buy, 5, 1);
@@ -40,6 +40,6 @@ describe('trades selling logic', () => {
         Api.buy(tbuy);
         Api.sell(tsellhalf);
 
-        expect(Api.orders).toEqual([tbuyhalf]);
+        expect(Api.buyorders).toEqual([tbuyhalf]);
     });
 });
