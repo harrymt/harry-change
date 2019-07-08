@@ -5,7 +5,10 @@
   "main": "api/dist/bin/www",
   "scripts": {
     "start": "node api/dist/bin/www | bunyan -o short --color",
-    "test": "cross-env IS_TEST=Y jest --colors --watch --runInBand | bunyan -l warn",
+    "test": "concurrently \"npm run tests:frontend\" \"npm run tests:api\"",
+  
+    "tests:frontend": "npm test --prefix app",
+    "tests:api": "cross-env IS_TEST=Y jest --rootDir=api --colors --watchAll --runInBand | bunyan -l warn",
     "postinstall": "tsc -p ./api",
     "dev": "concurrently \"npm run frontend\" \"npm run api\"",
     "frontend": "npm start --prefix app",
