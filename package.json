@@ -5,9 +5,11 @@
   "main": "api/dist/bin/www",
   "scripts": {
     "start": "node api/dist/bin/www | bunyan -o short --color",
+    "test": "cross-env IS_TEST=Y jest --colors --watch --runInBand | bunyan -l warn",
     "postinstall": "tsc -p ./api",
-    "dev": "nodemon | bunyan -o short --color",
-    "test": "cross-env IS_TEST=Y jest --colors --watch --runInBand | bunyan -l warn"
+    "dev": "concurrently \"npm run frontend\" \"npm run api\"",
+    "frontend": "npm start --prefix app",
+    "api": "nodemon | bunyan -o short --color"
   },
   "nodemonConfig": {
     "ignore": [
@@ -33,6 +35,7 @@
     "@types/node": "^12.0.10",
     "@types/supertest": "^2.0.7",
     "bunyan": "^1.8.12",
+    "concurrently": "^4.1.1",
     "cookie-parser": "^1.4.4",
     "cross-env": "^5.2.0",
     "express": "~4.16.1",
@@ -40,7 +43,7 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
-    "jest": "^24.8.0",
+    "jest": "^24.7.1",
     "nodemon": "^1.19.1",
     "should": "^13.2.3",
     "supertest": "^4.0.2",
