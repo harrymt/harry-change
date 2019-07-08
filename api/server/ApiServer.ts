@@ -8,7 +8,7 @@ export class ApiServer {
   server: Server;
 
   setup() {
-    this.port = this.normalizePort(process.env.PORT || '3100');
+    this.port = this.normalizePort('3100');
 
     /**
      * Get port from environment and store in Express.
