@@ -1,24 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Harry's Exchange.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Harry's Exchange.</h1>
       </header>
+      <main className="App-main">
+        <div className="App-search">
+          <input disabled className="Search-input" alt="Search Box" type="text"/>
+          <button className="App-search-button" disabled>Search</button>
+        </div>
+      </main>
     </div>
   );
 }
