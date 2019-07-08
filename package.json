@@ -6,7 +6,6 @@
   "scripts": {
     "start": "concurrently \"npm run frontend\" \"npm run api:prod\"",
     "test": "concurrently \"npm run tests:frontend\" \"npm run tests:api\"",
-    
     "tests:frontend": "npm test --prefix app",
     "tests:api": "cross-env IS_TEST=Y jest --rootDir=api --colors --watchAll --runInBand | bunyan -l warn",
     "postinstall": "tsc -p ./api",
@@ -38,6 +37,7 @@
     "@types/morgan": "^1.7.35",
     "@types/node": "^12.0.10",
     "@types/supertest": "^2.0.7",
+    "app": "file:app",
     "bunyan": "^1.8.12",
     "concurrently": "^4.1.1",
     "cookie-parser": "^1.4.4",
