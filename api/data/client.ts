@@ -1,13 +1,14 @@
 import { Client } from '@elastic/elasticsearch';
+import logger from '../logger';
 
 const client = new Client({ node: 'http://localhost:9200' })
 
-export function setup() {
+export function ping() {
     client.ping({}, error => {
         if (error) {
-            console.error('Elasticsearch cluster is down!');
+            logger.error('Elasticsearch cluster is down!');
         } else {
-            console.log('Successfully able to ping elastic search');
+            logger.info('Successfully able to ping elastic search');
         }
     });
 };

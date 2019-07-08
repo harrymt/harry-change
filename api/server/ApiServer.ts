@@ -1,6 +1,7 @@
 import app from '../app';
 import { createServer, Server } from 'http';
 import logger from '../logger';
+import datastore from '../data/repository';
 
 export class ApiServer {
 
@@ -19,6 +20,9 @@ export class ApiServer {
      * Create HTTP server.
      */
     this.server = createServer(app);
+
+    // Check if elastic search works
+    datastore.ping();
   }
 
   start() {

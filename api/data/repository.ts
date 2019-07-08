@@ -1,7 +1,11 @@
-import client from './client';
+import client, { ping } from './client';
 import { Trade } from '../trades/Trade';
 
 class Repository {
+    async ping() {
+        await ping();
+    }
+
     async search(trade: Trade) {
         const result = await client.search({
             index: trade.id.toString(),

@@ -14,7 +14,8 @@ export class TradesApi {
     }
 
     buy(trade: Trade) {
-        // datastore.set(trade); // TODO enable this
+        datastore.set(trade);
+
         this.buyorders.push(trade);
         this.history.push(new Record(trade));
 
