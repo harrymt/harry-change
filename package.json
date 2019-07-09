@@ -10,9 +10,8 @@
     "tests:frontend": "npm test --prefix app",
     "tests:api": "cross-env IS_TEST=Y jest --rootDir=api --colors --watchAll --runInBand | bunyan -l warn",
     
-    "test:ci": "npm run test:ci:frontend && npm run test:ci:api",
     "test:ci:frontend": "npm run test:ci --prefix app",
-    "test:ci:api": "jest --rootDir=api --colors | bunyan -l warn",
+    "test:ci:api": "jest --rootDir=api --colors",
     
     "postinstall": "tsc -p ./api",
     "dev": "concurrently \"npm run frontend\" \"npm run api\"",
