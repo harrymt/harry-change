@@ -6,6 +6,7 @@
   "scripts": {
     "start": "concurrently \"npm run frontend\" \"npm run api:prod\"",
     "test": "concurrently \"npm run tests:frontend\" \"npm run tests:api\"",
+    "test:ci": "npm run tests:frontend && npm run tests:api",
     "tests:frontend": "npm test --prefix app",
     "tests:api": "cross-env IS_TEST=Y jest --rootDir=api --colors --watchAll --runInBand | bunyan -l warn",
     "postinstall": "tsc -p ./api",
