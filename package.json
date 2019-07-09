@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
-    "jest": "^24.7.1",
+    "jest": "24.7.1",
     "nodemon": "^1.19.1",
     "should": "^13.2.3",
     "supertest": "^4.0.2",
