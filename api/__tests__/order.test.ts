@@ -32,7 +32,7 @@ describe('POST /order', function() {
         await request(app)
             .get('/orders')
             .set('Accept', 'application/json')
-            .expect(200, [buyTradeA.toJson()]);
+            .expect(200, [buyTradeA.setId(6).toJson()]);
         
         // Tidy up
         await request(app)

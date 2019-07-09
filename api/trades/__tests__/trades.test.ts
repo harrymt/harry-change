@@ -33,8 +33,8 @@ describe('trades selling logic', () => {
         expect(Api.buyorders).toStrictEqual([]);
     });
 
-    const tbuyhalf = new Trade(BuyOrSell.Buy, 5, 1);
     const tsellhalf = new Trade(BuyOrSell.Sell, 5, 1);
+    const tbuyhalf = new Trade(BuyOrSell.Buy, 5, 1).setId(0);
 
     it('buy single sell half of the single should modify element in queue', () => {
         Api.buy(tbuy);
