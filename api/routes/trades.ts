@@ -5,7 +5,7 @@ const router: Router = Router();
 
 router.get('/', function(req: Request, res: Response, next: NextFunction) {
   res.setHeader('Content-Type', 'application/json');
-  res.json(Api.history);
+  res.json(Api.history).status(200);
 });
 
 export default router;
