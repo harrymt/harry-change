@@ -36,7 +36,7 @@ export class OpenOrders extends React.Component {
           (result) => {
             this.setState({
               isLoaded: true,
-              isEmpty: result.body === null || result === "{}",
+              isEmpty: result.body === null || result === "{}" || result.response.length === 0,
               items: result.response
             });
           },
