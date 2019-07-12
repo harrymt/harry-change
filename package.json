@@ -9,7 +9,7 @@
     "tests:frontend": "npm test --prefix app",
     "tests:api": "cross-env IS_TEST=Y jest --rootDir=api --colors --watchAll --runInBand | bunyan -l warn",
     "tests:integration": "start-server-and-test dev 3000 cy:run",
-    "cy:run": "cypress run",
+    "cy:run": "./node_modules/.bin/cypress run",
     "test:ci:frontend": "npm run test:ci --prefix app",
     "test:ci:api": "jest --rootDir=api --colors",
     "postinstall": "tsc -p ./api",
