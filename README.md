@@ -1,6 +1,8 @@
+
+
 # Harry's Exchange
 
-Example Node.js backend API and simple frontend for an exchange.
+Example Node.js backend API and simple frontend for a BUY/SELL exchange.
 
 
 ### Setup
@@ -97,3 +99,7 @@ GET /orders
   }
 ]
 ```
+
+#### Elastic Search
+
+The data is currently not stored in elastic search, only via an in-memory array. The `TradesApi.ts` will need to be modified to add the trades to the array.
