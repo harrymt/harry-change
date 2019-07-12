@@ -30,9 +30,8 @@ jobs:
 
       - save_cache:
           paths:
-            - node_modules
-            - app/node_modules
             - ~/.cache
+            - ~/.npm
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
