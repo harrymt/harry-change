@@ -1,6 +1,11 @@
 api/dist
 package-lock.json
 app/package-lock.json
+cypress/plugins
+cypress/screenshots
+cypress/support
+cypress/videos
+
 
 # Logs
 logs

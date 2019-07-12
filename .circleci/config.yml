@@ -35,5 +35,6 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: npm run test:ci:frontend
+      - run: npm run tests:integration
       - run: npm run test:ci:api
+      - run: npm run test:ci:frontend
