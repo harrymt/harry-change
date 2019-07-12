@@ -1,0 +1,23 @@
+.App-search {
+    justify-content: center;
+    display: inline-block;
+    padding-top: 10px;
+  }
+  
+  .App-search p {
+    display: inline-block;
+  }
+  
+  .App-search-button {
+    padding: 8px;
+    width: 80px;
+    border-radius: 4px;
+    background: #ddd;
+    border: 1px solid #999;
+  }
+  
+  .App-search input {
+    margin: 10px;
+    padding: 6px;
+  }
+  

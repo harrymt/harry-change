@@ -1,20 +1,19 @@
 import React from 'react';
 import './App.css';
+import { Header } from './Header';
+import { Search } from './Search';
+import { OpenOrders } from './OpenOrders';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Harry's Exchange.</h1>
-      </header>
-      <main className="App-main">
-        <div className="App-search">
-          <input disabled className="Search-input" alt="Search Box" type="text"/>
-          <button className="App-search-button" disabled>Search</button>
-        </div>
-      </main>
-    </div>
-  );
-}
+const App = () => (
+  <div className="App">
+    <Header />
+    
+    <main className="App-main">
+      <Search />
+      <h2>Open Orders</h2>
+      <OpenOrders />
+    </main>
+  </div>
+);
 
 export default App;

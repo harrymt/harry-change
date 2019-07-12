@@ -20,6 +20,6 @@ describe('GET /orders', function() {
         request(app)
             .get('/orders')
             .set('Accept', 'application/json')
-            .expect([], done)
-    })
+            .expect({ response: [] }, done)
+    });
 });
